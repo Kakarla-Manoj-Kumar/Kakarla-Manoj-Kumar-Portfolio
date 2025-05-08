@@ -2,15 +2,26 @@
     height: 200px;
     border-radius: 50%;
     margin: 50px;
+    border: 5px solid #04192f;
+    width: 200px;
+    height: 200px;
+    margin: 20px 0;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeInUp 1.5s ease-in-out, rotate 5s infinite linear;
+}
+.ProfilePhoto:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 .intro{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   /* background-color:rgb(254, 116, 144);*/
     height: 70vh;
     text-align: center;
+    padding: 5% 10%;
+    animation: zoomIn 1.5s ease-in-out;
 }
 .list{
     list-style:  inside;
@@ -57,18 +68,30 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    
     margin-top: 40px;
+    font-size: 2.5rem;
+    color: #04080e;
+    margin-bottom: 20px;
+    animation: slideInLeft 1.5s ease-in-out;
 }
 .f{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     align-items: start;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out, hoverGlow 3s infinite alternate;
 }
-/*.s{
-    background-color: rgb(111, 251, 207);
-}*/
+.f:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #e0f7fa;
+}
 .game-button{
     margin: 10px;
     display: inline-block;
@@ -131,13 +154,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-x: auto;
 }
 .header{
-    background-color:   #1e2842;
+    background-color: #1e2842;
     margin-bottom: 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeInSlideDown 1.5s ease-in-out, pulse 3s infinite;
 }
 .header a{
     color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.header a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+    text-shadow: 0px 0px 5px #ffcc00;
 }
 .header7{
     background-color:   #1e2842;
@@ -171,6 +209,10 @@
 .welcome{
     margin-top: 10px;
     font-weight: bold;
+    font-size: 3rem;
+    color: #1e2842;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1.5s ease-in-out, glow 2s infinite alternate;
 }
 .body{
     background-color:#ffffff;
@@ -190,11 +232,161 @@
   .nav {
     flex-wrap: wrap;
   }
-  .game-container {
-    overflow-x: auto;
+  .nav-link {
+    color: white;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  .nav-link:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
   }
   @media (max-width: 768px) {
     .header1, .header5, p {
       font-size: 16px;
     }
+    .welcome {
+        font-size: 2rem;
+    }
+    .ProfilePhoto {
+        width: 150px;
+        height: 150px;
+    }
+    .header1 {
+        font-size: 1.8rem;
+    }
+    .f {
+        grid-template-columns: 1fr;
+    }
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    animation: fadeIn 2s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  @keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+  }
+  @keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
+  @keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  @keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+  @keyframes fadeInSlideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(10%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  @keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+  @keyframes glow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    to {
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+  @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+  @keyframes hoverGlow {
+    from {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+  @keyframes footerGlow {
+    from {
+        background-color: #04192f;
+    }
+    to {
+        background-color: #062a4f;
+    }
+  }
+  footer {
+    background-color: #04192f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    animation: fadeInUp 1.5s ease-in-out, footerGlow 3s infinite alternate;
+  }
+  footer span {
+    font-size: 0.9rem;
   }
